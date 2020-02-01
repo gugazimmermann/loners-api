@@ -1,0 +1,84 @@
+{
+    "events": [
+        {
+            "name": "Assistir F1 torcendo para a Ferrari",
+            "image": "images/f1.png",
+            "label": "Esportes",
+            "date": "2020-02-10T13:00:00.000Z",
+            "duration": 150,
+            "price": 0,
+            "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
+            "featured": true
+        },
+        {
+            "name": "Campanha de D&D 3.5 / Neverwinter",
+            "image": "images/dnd.png",
+            "label": "Jogos",
+            "date": "2020-02-10T19:30:00.000Z",
+            "duration": 240,
+            "price": 0,
+            "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
+            "featured": true
+        },
+        {
+            "name": "Encontro de estudantes de Direito Internacional",
+            "image": "images/estudantes.png",
+            "label": "Acadêmico",
+            "date": "2020-02-10T21:00:00.000Z",
+            "duration": 120,
+            "price": 0,
+            "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
+            "featured": false
+        },
+        {
+            "name": "Exxxperience Colors Party",
+            "image": "images/exxxperience.png",
+            "label": "Festa",
+            "date": "2020-02-10T22:00:00.000Z",
+            "duration": 360,
+            "price": 120,
+            "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
+            "featured": false
+        },
+        {
+            "name": "Encontro de bandas de garagem",
+            "image": "images/bandas.png",
+            "label": "Música",
+            "date": "2020-02-10T20:00:00.000Z",
+            "duration": 180,
+            "price": 10,
+            "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
+            "featured": false
+        },
+        {
+            "name": "Lançamento do CD Bla Bla Bla",
+            "image": "images/cdblablabla.png",
+            "label": "Música",
+            "date": "2020-02-10T22:00:00.000Z",
+            "duration": 60,
+            "price": 0,
+            "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
+            "featured": false
+        },
+        {
+            "name": "Bate Papo sobre estilo e moda",
+            "image": "images/exxxperience.png",
+            "label": "Festa",
+            "date": "2020-02-10T11:30:00.000Z",
+            "duration": 360,
+            "price": 60,
+            "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
+            "featured": false
+        },
+        {
+            "name": "Degustação de Comida Mexicana",
+            "image": "images/mexicana.png",
+            "label": "Culinária",
+            "date": "2020-02-10T19:30:00.000Z",
+            "duration": 90,
+            "price": 50,
+            "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
+            "featured": false
+        }
+    ]
+}
