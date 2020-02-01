@@ -3,21 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const mongoose = require('mongoose');
+const db = require('./db');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var eventsRouter = require('./routes/events');
-
-const mongoUrl = 'mongodb://localhost:27017/lonersapp';
-const mongoConnect = mongoose.connect(mongoUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true
-});
-mongoConnect
-  .then((db) => console.log('Connected correctly to database'))
-  .catch((err) => console.log(err.message))
 
 var app = express();
 
