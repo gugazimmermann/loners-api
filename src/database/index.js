@@ -20,8 +20,13 @@ const options = {
 const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
 
 const initDb = async () => {
-  await mongoose.connect(url, options);
-  console.log('MongoDB is connected');
+  try {
+    console.info('Waiting to connect MongoDB');
+    await mongoose.connect(url, options);
+    console.info('MongoDB is connected');
+  } catch (err) {
+    console.error(err.message);
+  }
 };
 
 module.exports = initDb;

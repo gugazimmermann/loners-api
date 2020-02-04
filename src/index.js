@@ -7,10 +7,10 @@ require('dotenv').config();
 const initDb = require('./database');
 const routes = require('./routes');
 
-const init = async () => {
-  const server = Hapi.server({
+(async () => {
+  const server = await new Hapi.Server({
     port: process.env.SERVER_PORT || 3000,
-    host: process.env.SERVER_HOST || 'localhost',
+    host: process.env.SERVER_HOST || '0.0.0.0',
   });
 
   const swaggerOptions = {
@@ -31,18 +31,15 @@ const init = async () => {
     },
   ]);
 
-  await initDb();
+  try {
+    await initDb();
 
-  await server.route(routes);
+    await server.route(routes);
 
-  await server.start();
+    await server.start();
 
-  console.log('Server running on %s', server.info.uri);
-};
-
-process.on('unhandledRejection', (err) => {
-  console.log(err);
-  process.exit(1);
-});
-
-init();
+    console.log('Server running at:', server.info.uri);
+  } catch (err) {
+    console.log(err);
+  }
+})();
