@@ -6,7 +6,7 @@ services:
             dockerfile: Dockerfile
         depends_on:
             - mongo
-        container_name: express
+        container_name: loners-hapi-api
         restart: unless-stopped
         env_file: .env
         environment:
@@ -16,7 +16,7 @@ services:
             MONGO_PORT: $MONGO_PORT
             MONGO_DB: $MONGO_DB
         ports:
-            - "8080:3000"
+            - 8080:3000
         volumes:
             - .:/app
             - node_modules:/app/node_modules
@@ -24,7 +24,7 @@ services:
             - loners-app-network
 
     mongo-express:
-        image: mongo-express
+        image: mongo-express:0.54
         container_name: mongo-express
         restart: unless-stopped
         ports:
@@ -38,7 +38,7 @@ services:
             - loners-app-network
 
     mongo:
-        image: mongo
+        image: mongo:4.2
         container_name: mongo
         restart: unless-stopped
         env_file: .env
@@ -47,10 +47,9 @@ services:
             MONGO_INITDB_ROOT_PASSWORD: $MONGO_PASSWORD
             MONGO_INITDB_DATABASE: $MONGO_DB
         ports:
-            - "27017:27017"
+            - 27017:27017
         volumes:
             - dbdata:/data/db
-            - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
         networks:
             - loners-app-network
 
