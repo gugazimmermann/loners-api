@@ -2,11 +2,11 @@
 
 API endpoinds and database handler for the Loners App. 
 
-This API should handle all the requests using NodeJS Express and MongoDB.
+This API should handle all the requests using NodeJS, Hapi and MongoDB.
 
 ### Technologies Used
 
-NodeJS, Express, MongoDB, Mongoose, Mongo-Express and Docker.
+NodeJS, Hapi, Swagger, MongoDB, Mongoose, Mongo-Express and Docker.
 
 ### How To Install
 
@@ -20,16 +20,19 @@ MONGO_PASSWORD=YOUR-MONGO-PASSWORD-CHANGE-IT
 MONGO_PORT=27017
 MONGO_DB=YOUR-MONGO-DATABASE-CHANGE-IT
 ```
+
+### How To Run
+
 * run `docker-compose up`
 
 ### How To Use
 
-ADMIN: http://localhost:8080
+API Endpoint: http://localhost:8080
+
+API Documentation: http://localhost:8080/documentation
 
 MONGO EXPRESS: http://localhost:8081 - use the same username and password you defined in the `.env` file.
 
 ## API ENDPOINTS
 
-Events: http://localhost:8080/events - GET / POST / DELETE
-
-Events/ID: http://localhost:8080/events/ID - GET / PUT / DELETE
+See API Documentation
