@@ -13,7 +13,7 @@ const eventsRoute = [
   {
     method: 'GET',
     path: '/events/{eventId}',
-    handler: eventsHandler.getAll,
+    handler: eventsHandler.getOne,
     options: {
       description: 'Get an event',
       tags: ['api'],
@@ -22,7 +22,7 @@ const eventsRoute = [
   {
     method: 'POST',
     path: '/events',
-    handler: eventsHandler.getAll,
+    handler: eventsHandler.post,
     options: {
       description: 'Creates an event',
       tags: ['api'],
@@ -31,7 +31,7 @@ const eventsRoute = [
   {
     method: 'PUT',
     path: '/events/{eventId}',
-    handler: eventsHandler.getAll,
+    handler: eventsHandler.update,
     options: {
       description: 'Updates an event',
       tags: ['api'],
@@ -40,7 +40,7 @@ const eventsRoute = [
   {
     method: 'DELETE',
     path: '/events/{eventId}',
-    handler: eventsHandler.getAll,
+    handler: eventsHandler.remove,
     options: {
       description: 'Delete an event',
       tags: ['api'],
