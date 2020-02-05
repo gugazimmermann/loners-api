@@ -1,48 +1,121 @@
-/* eslint-disable no-unused-vars */
+const Boom = require('boom');
 const Event = require('../../database/models/event');
 
-const getAll = async (req, _h) => {
+const getAll = async () => {
   try {
-    return await Event.find({});
+    const events = await Event.find({});
+    const eventsArray = [];
+    events.forEach((event) => {
+      const eventObj = {
+        id: event.id,
+        name: event.name,
+        image: event.image,
+        label: event.label,
+        date: event.date,
+        duration: event.duration,
+        price: event.price,
+        description: event.description,
+        featured: event.featured,
+      };
+      eventsArray.push(eventObj);
+    });
+    return {
+      data: eventsArray,
+    };
   } catch (err) {
-    return err;
+    return err.message;
   }
 };
 
-const getOne = async (req, _h) => {
+const getOne = async (req) => {
   try {
-    return await Event.findById(req.params.eventId);
+    const event = await Event.findById(req.params.id);
+    const eventObj = {
+      id: event.id,
+      name: event.name,
+      image: event.image,
+      label: event.label,
+      date: event.date,
+      duration: event.duration,
+      price: event.price,
+      description: event.description,
+      featured: event.featured,
+    };
+    return {
+      data: eventObj,
+    };
   } catch (err) {
-    return err;
+    return Boom.notFound(`Event with ID: ${req.params.id} not found`);
   }
 };
 
-const post = async (req, _h) => {
+const post = async (req) => {
   try {
-    return await Event.create(req.payload);
+    const event = await Event.create(req.payload);
+    const eventObj = {
+      id: event.id,
+      name: event.name,
+      image: event.image,
+      label: event.label,
+      date: event.date,
+      duration: event.duration,
+      price: event.price,
+      description: event.description,
+      featured: event.featured,
+    };
+    return {
+      data: eventObj,
+    };
   } catch (err) {
-    return err;
+    return Boom.badRequest('Event cannot be created');
   }
 };
 
-const remove = async (req, _h) => {
+const remove = async (req) => {
   try {
-    return await Event.findByIdAndDelete(req.params.eventId);
+    const event = await Event.findByIdAndDelete(req.params.id);
+    const eventObj = {
+      id: event.id,
+      name: event.name,
+      image: event.image,
+      label: event.label,
+      date: event.date,
+      duration: event.duration,
+      price: event.price,
+      description: event.description,
+      featured: event.featured,
+    };
+    return {
+      data: eventObj,
+    };
   } catch (err) {
-    return err;
+    return Boom.notFound(`Event with ID: ${req.params.id} not found`);
   }
 };
 
-const update = async (req, _h) => {
+const update = async (req) => {
   try {
-    const test = await Event.findByIdAndUpdate(
-      req.params.eventId,
+    const event = await Event.findByIdAndUpdate(
+      req.params.id,
       { $set: req.payload },
-      { new: true },
+      { upsert: true },
     );
-    return test;
+    const eventObj = {
+      id: event.id,
+      name: event.name,
+      image: event.image,
+      label: event.label,
+      date: event.date,
+      duration: event.duration,
+      price: event.price,
+      description: event.description,
+      featured: event.featured,
+    };
+    return {
+      data: eventObj,
+    };
   } catch (err) {
-    return err;
+    return Boom.notFound(`Event with ID: ${req.params.id} not found`);
   }
 };
 
