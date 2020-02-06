@@ -4,23 +4,23 @@ API endpoinds and database handler for the Loners App.
 
 This API should handle all the requests using NodeJS, Hapi and MongoDB.
 
-### Technologies Used
+## Technologies Used
 
 NodeJS, Hapi, Swagger, MongoDB, Mongoose, Mongo-Express and Docker.
 
-### How To Install
+## How To Install
 
 * clone the project with `git clone https://github.com/gugazimmermann/loners-api.git`
 * go to the project folder `cd loners-api`
 * make sure you have installed **docker** and **docker-compose**
 
-### How To Run
+## How To Run
 
-## LINUX
+#### LINUX
 
 * run `./create_env.sh` and type when needed.
 
-### How To Use
+## How To Use
 
 API Endpoint: http://localhost:8080
 
