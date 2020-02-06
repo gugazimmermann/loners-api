@@ -6,7 +6,6 @@ const {
   MONGO_USERNAME,
   MONGO_PASSWORD,
   MONGO_HOSTNAME,
-  MONGO_PORT,
   MONGO_DB,
 } = process.env;
 
@@ -17,7 +16,7 @@ const options = {
   useCreateIndex: true,
 };
 
-const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:27017/${MONGO_DB}?authSource=admin`;
 
 const initDb = async () => {
   try {
