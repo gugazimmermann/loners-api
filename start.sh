@@ -44,6 +44,12 @@ db.createUser(
 EOF
 echo "created..."
 
+if [[ -d node_modules/ ]]
+then
+    rm -rf node_modules/
+fi
+
+mkdir node_modules/
 
 docker-compose -f docker-compose.yml up
 
