@@ -13,26 +13,19 @@ NodeJS, Hapi, Swagger, MongoDB, Mongoose, Mongo-Express and Docker.
 * clone the project with `git clone https://github.com/gugazimmermann/loners-api.git`
 * go to the project folder `cd loners-api`
 * make sure you have installed **docker** and **docker-compose**
-* create a `.env` file in the root of `loners-api` folder with the content:
-```
-MONGO_USERNAME=YOUR-MONGO-USERNAME-CHANGE-IT
-MONGO_PASSWORD=YOUR-MONGO-PASSWORD-CHANGE-IT
-MONGO_PORT=27017
-MONGO_DB=YOUR-MONGO-DATABASE-CHANGE-IT
-```
 
 ### How To Run
 
-* run `docker-compose up`
+## LINUX
+
+* run `./create_env.sh` and type when needed.
 
 ### How To Use
 
 API Endpoint: http://localhost:8080
 
-API Documentation: http://localhost:8080/documentation
-
-MONGO EXPRESS: http://localhost:8081 - use the same username and password you defined in the `.env` file.
+MONGO EXPRESS: http://localhost:8081 - use the same username and password you typed before.
 
 ## API ENDPOINTS
 
-See API Documentation
+See API Documentation: http://localhost:8080/documentation
