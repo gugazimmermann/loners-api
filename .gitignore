@@ -1,3 +1,4 @@
 node_modules
 .env
+init-mongo.js
 .nyc_output

@@ -1,9 +1,14 @@
 #!/bin/bash
 
 # variables
-MONGO_USERNAME=$1
-MONGO_PASSWORD=$2
-MONGO_DB=$3
+echo "Type the MongoDB user, followed by [ENTER]:"
+read MONGO_USERNAME
+
+echo "Type the MongoDB password, followed by [ENTER]:"
+read MONGO_PASSWORD
+
+echo "Type the MongoDB database name, followed by [ENTER]:"
+read MONGO_DB
 
 # input checks
 if [[ -z "${MONGO_USERNAME}" || -z "${MONGO_PASSWORD}"  || -z "${MONGO_DB}" ]]; then
