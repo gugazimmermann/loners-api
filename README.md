@@ -18,7 +18,7 @@ NodeJS, Hapi, Swagger, MongoDB, Mongoose, Mongo-Express and Docker.
 
 #### LINUX
 
-* run `./create_env.sh` and type when needed.
+* run `./star.sh` and type when needed.
 
 ## How To Use
 
