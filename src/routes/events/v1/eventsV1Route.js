@@ -54,7 +54,7 @@ const eventsV1Route = [
   },
   {
     method: 'GET',
-    path: '/api/v1/events{id}',
+    path: '/api/v1/events/{id}',
     handler: eventsV1Handler.getOne,
     options: {
       description: 'Get an event',
@@ -92,7 +92,7 @@ const eventsV1Route = [
   },
   {
     method: 'PUT',
-    path: '/api/v1/events{id}',
+    path: '/api/v1/events/{id}',
     handler: eventsV1Handler.update,
     options: {
       description: 'Updates an event',
@@ -114,7 +114,7 @@ const eventsV1Route = [
   },
   {
     method: 'DELETE',
-    path: '/api/v1/events{id}',
+    path: '/api/v1/events/{id}',
     handler: eventsV1Handler.remove,
     options: {
       description: 'Delete an event',
