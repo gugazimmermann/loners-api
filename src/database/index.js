@@ -14,18 +14,12 @@ const options = {
   connectTimeoutMS: 10000,
   useUnifiedTopology: true,
   useCreateIndex: true,
+  useFindAndModify: false,
 };
 
-const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:27017/${MONGO_DB}?authSource=admin`;
-
-const initDb = async () => {
-  try {
-    console.info('Waiting to connect MongoDB');
-    await mongoose.connect(url, options);
-    console.info('MongoDB is connected');
-  } catch (err) {
-    console.error(err.message);
-  }
+const initDb = async (hostname = MONGO_HOSTNAME, db = MONGO_DB) => {
+  const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${hostname}:27017/${db}`;
+  await mongoose.connect(url, options);
 };
 
 module.exports = initDb;

@@ -2,29 +2,25 @@ const Boom = require('boom');
 const Event = require('../../database/models/event');
 
 const getAll = async () => {
-  try {
-    const events = await Event.find({});
-    const eventsArray = [];
-    events.forEach((event) => {
-      const eventObj = {
-        id: event.id,
-        name: event.name,
-        image: event.image,
-        label: event.label,
-        date: event.date,
-        duration: event.duration,
-        price: event.price,
-        description: event.description,
-        featured: event.featured,
-      };
-      eventsArray.push(eventObj);
-    });
-    return {
-      data: eventsArray,
+  const events = await Event.find({});
+  const eventsArray = [];
+  events.forEach((event) => {
+    const eventObj = {
+      id: event.id,
+      name: event.name,
+      image: event.image,
+      label: event.label,
+      date: event.date,
+      duration: event.duration,
+      price: event.price,
+      description: event.description,
+      featured: event.featured,
     };
-  } catch (err) {
-    return err.message;
-  }
+    eventsArray.push(eventObj);
+  });
+  return {
+    data: eventsArray,
+  };
 };
 
 const getOne = async (req) => {
@@ -112,7 +108,10 @@ const update = async (req) => {
       featured: event.featured,
     };
     return {
-      data: eventObj,
+      data: {
+        ...eventObj,
+        ...req.payload,
+      },
     };
   } catch (err) {
     return Boom.notFound(`Event with ID: ${req.params.id} not found`);

@@ -50,9 +50,11 @@ services:
             MONGO_INITDB_DATABASE: $MONGO_DB
         ports:
             - 27017:27017
+        expose:
+            - 27017
         volumes:
             - dbdata:/data/db
-            - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+            - ./init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh:ro
         networks:
             - loners-app-network
 
