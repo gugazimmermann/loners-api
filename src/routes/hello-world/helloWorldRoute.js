@@ -8,6 +8,7 @@ const helloWorldRoute = {
     description: 'Test Endpoint',
     notes: 'Returns a Hello World to test the routes',
     tags: ['api'],
+    auth: 'simple',
   },
 };
 

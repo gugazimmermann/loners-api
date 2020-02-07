@@ -25,7 +25,6 @@ const startServer = async (server) => {
         email: 'gugazimmermann@gmail.com',
       },
     },
-    basePath: '/api/',
     jsonEditor: true,
     auth: false,
   };

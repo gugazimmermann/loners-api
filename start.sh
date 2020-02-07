@@ -1,18 +1,16 @@
 #!/bin/bash
 
-read -p "Type the MongoDB user [lonersapp]: " MONGO_USERNAME
+read -p "Type the USERNAME [lonersapp]: " MONGO_USERNAME
 MONGO_USERNAME=${MONGO_USERNAME:-lonersapp}
 echo $MONGO_USERNAME
 
-read -p "Type the MongoDB password [lonersapppwd]: " MONGO_PASSWORD
+read -p "Type the PASSWORD [lonersapppwd]: " MONGO_PASSWORD
 MONGO_PASSWORD=${MONGO_PASSWORD:-lonersapppwd}
 echo $MONGO_PASSWORD
 
-read -p "Type the MongoDB database [lonersappdb]: " MONGO_DB
-MONGO_DB=${MONGO_DB:-lonersappdb}
-echo $MONGO_DB
+MONGO_DB=lonersappdb
 
-if [[ -z "${MONGO_USERNAME}" || -z "$'{MONGO_PASSWORD}"  || -z "${MONGO_DB}" ]]; then
+if [[ -z "${MONGO_USERNAME}" || -z "${MONGO_PASSWORD}"  || -z "${MONGO_DB}" ]]; then
   echo "required inputs misssing"
   echo "run: ./create_env.sh YOUR_USERNAME YOUR_PASSWORD YOUR_DATABASE"
   exit 1
