@@ -40,6 +40,17 @@ describe('Loners App Routes', () => {
 
 
   describe('Loners App Routes', () => {
+    describe('Views', () => {
+      it('Home Should exist', async () => {
+        const res = await chai.request(`http://${host}:${port}`).get('/');
+        expect(res.statusCode).to.be.eql(200);
+      });
+      it('About Us Should exist', async () => {
+        const res = await chai.request(`http://${host}:${port}`).get('/about-us');
+        expect(res.statusCode).to.be.eql(200);
+      });
+    });
+
     describe('hello-world', () => {
       it('Should exist', async () => {
         const res = await chai.request(`http://${host}:${port}`).get('/helloWorld');
