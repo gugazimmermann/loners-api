@@ -60,14 +60,6 @@ See API Documentation: http://localhost:8080/documentation
 
 ## How to Test
 
-If it's the first time that you run the tests:
-
-```
-npm install
-```
-
-to install all the dependencies.
-
 Make sure that you are running the database (see **How To Run**), we recommend that you stop the API container before running the tests:
 
 ```

@@ -61,6 +61,8 @@ fi
 
 mkdir node_modules/
 
+npm install --silent
+
 docker-compose -f docker-compose.yml up
 
 exit 0

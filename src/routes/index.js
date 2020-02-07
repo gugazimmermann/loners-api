@@ -1,10 +1,10 @@
 const helloWorldRoute = require('./hello-world/helloWorldRoute');
-const eventsRoute = require('./events/eventsRoute');
+const eventsV1Route = require('./events/v1/eventsV1Route');
 const viewsRoute = require('./views/viewsRoute');
 
 const routes = [
   helloWorldRoute,
-  ...eventsRoute,
+  ...eventsV1Route,
   ...viewsRoute,
 ];
 

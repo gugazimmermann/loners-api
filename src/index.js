@@ -12,8 +12,13 @@ const { createServer, startServer } = require('./server');
     const swaggerOptions = {
       info: {
         title: `${pkg.description} Documentation`,
-        version: pkg.version,
+        version: pkg.api_version,
+        contact: {
+          name: 'Guga Zimmermann',
+          email: 'gugazimmermann@gmail.com',
+        },
       },
+      basePath: '/api/',
       jsonEditor: true,
       auth: false,
     };

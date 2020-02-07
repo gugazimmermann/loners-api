@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const eventsHandler = require('./eventsHandler');
+const eventsV1Handler = require('./eventsV1Handler');
 
 const eventSchema = Joi.object({
   id: Joi.string().required(),
@@ -35,11 +35,11 @@ const eventUpdateSchema = Joi.object({
   featured: Joi.boolean().optional(),
 });
 
-const eventsRoute = [
+const eventsV1Route = [
   {
     method: 'GET',
-    path: 'api/v1/events',
-    handler: eventsHandler.getAll,
+    path: '/api/v1/events',
+    handler: eventsV1Handler.getAll,
     options: {
       description: 'Get all events',
       tags: ['api', 'events'],
@@ -54,8 +54,8 @@ const eventsRoute = [
   },
   {
     method: 'GET',
-    path: '/events/{id}',
-    handler: eventsHandler.getOne,
+    path: '/api/v1/events{id}',
+    handler: eventsV1Handler.getOne,
     options: {
       description: 'Get an event',
       tags: ['api', 'events'],
@@ -75,8 +75,8 @@ const eventsRoute = [
   },
   {
     method: 'POST',
-    path: '/events',
-    handler: eventsHandler.post,
+    path: '/api/v1/events',
+    handler: eventsV1Handler.post,
     options: {
       description: 'Creates an event',
       tags: ['api', 'events'],
@@ -92,8 +92,8 @@ const eventsRoute = [
   },
   {
     method: 'PUT',
-    path: '/events/{id}',
-    handler: eventsHandler.update,
+    path: '/api/v1/events{id}',
+    handler: eventsV1Handler.update,
     options: {
       description: 'Updates an event',
       tags: ['api', 'events'],
@@ -114,8 +114,8 @@ const eventsRoute = [
   },
   {
     method: 'DELETE',
-    path: '/events/{id}',
-    handler: eventsHandler.remove,
+    path: '/api/v1/events{id}',
+    handler: eventsV1Handler.remove,
     options: {
       description: 'Delete an event',
       tags: ['api', 'events'],
@@ -135,4 +135,4 @@ const eventsRoute = [
   },
 ];
 
-module.exports = eventsRoute;
+module.exports = eventsV1Route;
