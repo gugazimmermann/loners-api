@@ -1,10 +1,12 @@
 const Hapi = require('hapi');
+const authBasic = require('hapi-auth-basic');
 const HapiSwagger = require('hapi-swagger');
 const Inert = require('inert');
 const Vision = require('vision');
 const handlebars = require('handlebars');
-const pkg = require('../package.json');
-const routes = require('./routes');
+const validate = require('./auth');
+const pkg = require('../../package.json');
+const routes = require('../routes');
 require('dotenv').config();
 
 const createServer = async () => {
@@ -29,6 +31,7 @@ const startServer = async (server) => {
     auth: false,
   };
   await server.register([
+    { plugin: authBasic },
     { plugin: Inert },
     { plugin: Vision },
     {
@@ -36,16 +39,19 @@ const startServer = async (server) => {
       options: swaggerOptions,
     },
   ]);
+
+  await server.auth.strategy('simple', 'basic', { validate });
+
   server.views({
     engines: {
       html: handlebars,
     },
     relativeTo: __dirname,
-    path: 'views',
-    layoutPath: 'views/layout',
-    layout: 'default',
-    partialsPath: 'views/partials',
-    helpersPath: 'views/helpers',
+    path: '../views',
+    layoutPath: '../views/layout',
+    layout: './default',
+    partialsPath: '../views/partials',
+    helpersPath: '../views/helpers',
   });
   await server.route(routes);
   await server.start();

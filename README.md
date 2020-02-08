@@ -22,7 +22,7 @@ cd loners-api
 
 ## How To Run
 
-#### LINUX
+#### Linux
 
 #### First Time
 
@@ -30,7 +30,7 @@ cd loners-api
 ./start.sh
 ```
 
-Follow the instructions, this will create the users inside the database.
+Follow the instructions, this will create the user and password.
 
 To close, just type: `Ctrl+C`
 
@@ -52,9 +52,9 @@ docker-compose stop
 
 API Endpoint: http://localhost:8080
 
-MONGO EXPRESS: http://localhost:8081 - use the same username and password.
+MONGO EXPRESS: http://localhost:8081
 
-## API ENDPOINTS
+## API Endpoints
 
 See API Documentation: http://localhost:8080/documentation
 

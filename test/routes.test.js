@@ -27,6 +27,8 @@ const eventTest = {
   featured: faker.random.boolean(),
 };
 
+const testAuth = 'Basic dGVzdFVzZXI6dGVzdHB3ZDAxMjM3ODUxfiU=';
+
 describe('Loners App Routes', () => {
   before(async () => {
     const server = await createServer();
@@ -41,19 +43,29 @@ describe('Loners App Routes', () => {
 
   describe('Loners App Routes', () => {
     describe('Views', () => {
-      it('Home Should exist', async () => {
+      it('Home Should Exist', async () => {
         const res = await chai.request(`http://${host}:${port}`).get('/');
         expect(res.statusCode).to.be.eql(200);
       });
-      it('About Us Should exist', async () => {
+      it('About Us Should Exist', async () => {
         const res = await chai.request(`http://${host}:${port}`).get('/about-us');
         expect(res.statusCode).to.be.eql(200);
       });
     });
 
     describe('hello-world', () => {
-      it('Should exist', async () => {
+      it('Should Fail Without Auth', async () => {
         const res = await chai.request(`http://${host}:${port}`).get('/helloWorld');
+        expect(res.statusCode).to.be.eql(401);
+        expect(res.text).to.be.eql('{"statusCode":401,"error":"Unauthorized","message":"Missing authentication"}');
+      });
+      it('Should Fail With Worng User/Password', async () => {
+        const res = await chai.request(`http://${host}:${port}`).get('/helloWorld').auth('user', 'pass');
+        expect(res.statusCode).to.be.eql(401);
+        expect(res.body.message).to.be.eql('Bad username or password');
+      });
+      it('Should Return With Auth', async () => {
+        const res = await chai.request(`http://${host}:${port}`).get('/helloWorld').set('Authorization', testAuth);
         expect(res.statusCode).to.be.eql(200);
         expect(res.text).to.be.eql('Hello, world!');
       });
