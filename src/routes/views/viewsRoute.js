@@ -1,4 +1,15 @@
+const Path = require('path');
+
 const viewsRoute = [
+  {
+    path: "/public/{param*}",
+    method: "GET",
+    handler: {
+        directory: {
+            path: Path.join(__dirname, '../../views/public'),
+            listing: false
+        }
+    }},
   {
     method: 'GET',
     path: '/',
