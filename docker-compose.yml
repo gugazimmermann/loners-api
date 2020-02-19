@@ -16,7 +16,7 @@ services:
             MONGO_PORT: 27017
             MONGO_DB: $MONGO_DB
         ports:
-            - 8080:3000
+            - 8080:80
         volumes:
             - .:/app
             - node_modules:/app/node_modules

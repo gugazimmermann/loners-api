@@ -31,7 +31,7 @@ const testAuth = 'Basic dGVzdFVzZXI6dGVzdHB3ZDAxMjM3ODUxfiU=';
 
 describe('Loners App Routes', () => {
   before(async () => {
-    const server = await createServer();
+    const server = await createServer(port);
     await startServer(server);
     await initDb(host, db);
   });
