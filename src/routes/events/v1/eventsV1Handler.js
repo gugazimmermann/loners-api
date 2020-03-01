@@ -1,22 +1,23 @@
 const Boom = require('boom');
 const Event = require('../../../database/models/event');
 
+const eventObj = (event) => ({
+  id: event.id,
+  name: event.name,
+  image: event.image,
+  label: event.label,
+  date: event.date,
+  duration: event.duration,
+  price: event.price,
+  description: event.description,
+  featured: event.featured,
+});
+
 const getAll = async () => {
   const events = await Event.find({});
   const eventsArray = [];
   events.forEach((event) => {
-    const eventObj = {
-      id: event.id,
-      name: event.name,
-      image: event.image,
-      label: event.label,
-      date: event.date,
-      duration: event.duration,
-      price: event.price,
-      description: event.description,
-      featured: event.featured,
-    };
-    eventsArray.push(eventObj);
+    eventsArray.push(eventObj(event));
   });
   return {
     data: eventsArray,
@@ -26,19 +27,8 @@ const getAll = async () => {
 const getOne = async (req) => {
   try {
     const event = await Event.findById(req.params.id);
-    const eventObj = {
-      id: event.id,
-      name: event.name,
-      image: event.image,
-      label: event.label,
-      date: event.date,
-      duration: event.duration,
-      price: event.price,
-      description: event.description,
-      featured: event.featured,
-    };
     return {
-      data: eventObj,
+      data: eventObj(event),
     };
   } catch (err) {
     return Boom.notFound(`Event with ID: ${req.params.id} not found`);
@@ -48,19 +38,8 @@ const getOne = async (req) => {
 const post = async (req) => {
   try {
     const event = await Event.create(req.payload);
-    const eventObj = {
-      id: event.id,
-      name: event.name,
-      image: event.image,
-      label: event.label,
-      date: event.date,
-      duration: event.duration,
-      price: event.price,
-      description: event.description,
-      featured: event.featured,
-    };
     return {
-      data: eventObj,
+      data: eventObj(event),
     };
   } catch (err) {
     return Boom.badRequest('Event cannot be created');
@@ -70,19 +49,8 @@ const post = async (req) => {
 const remove = async (req) => {
   try {
     const event = await Event.findByIdAndDelete(req.params.id);
-    const eventObj = {
-      id: event.id,
-      name: event.name,
-      image: event.image,
-      label: event.label,
-      date: event.date,
-      duration: event.duration,
-      price: event.price,
-      description: event.description,
-      featured: event.featured,
-    };
     return {
-      data: eventObj,
+      data: eventObj(event),
     };
   } catch (err) {
     return Boom.notFound(`Event with ID: ${req.params.id} not found`);
@@ -96,20 +64,9 @@ const update = async (req) => {
       { $set: req.payload },
       { upsert: true },
     );
-    const eventObj = {
-      id: event.id,
-      name: event.name,
-      image: event.image,
-      label: event.label,
-      date: event.date,
-      duration: event.duration,
-      price: event.price,
-      description: event.description,
-      featured: event.featured,
-    };
     return {
       data: {
-        ...eventObj,
+        ...eventObj(event),
         ...req.payload,
       },
     };
