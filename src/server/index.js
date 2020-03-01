@@ -51,7 +51,6 @@ const startServer = async (server) => {
     layoutPath: '../views/layout',
     layout: './default',
     partialsPath: '../views/partials',
-    helpersPath: '../views/helpers',
   });
   await server.route(routes);
   await server.start();

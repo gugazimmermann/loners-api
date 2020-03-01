@@ -1,39 +1,6 @@
 const Joi = require('joi');
 const eventsV1Handler = require('./eventsV1Handler');
-
-const eventSchema = Joi.object({
-  id: Joi.string().required(),
-  name: Joi.string().required(),
-  image: Joi.string().required(),
-  label: Joi.string().required(),
-  date: Joi.date().required(),
-  duration: Joi.number().required(),
-  description: Joi.string().required(),
-  price: Joi.number().optional(),
-  featured: Joi.boolean().optional(),
-});
-
-const eventPostSchema = Joi.object({
-  name: Joi.string().required(),
-  image: Joi.string().required(),
-  label: Joi.string().required(),
-  date: Joi.date().required(),
-  duration: Joi.number().required(),
-  description: Joi.string().required(),
-  price: Joi.number().optional(),
-  featured: Joi.boolean().optional(),
-});
-
-const eventUpdateSchema = Joi.object({
-  name: Joi.string().optional(),
-  image: Joi.string().optional(),
-  label: Joi.string().optional(),
-  date: Joi.date().optional(),
-  duration: Joi.number().optional(),
-  description: Joi.string().optional(),
-  price: Joi.number().optional(),
-  featured: Joi.boolean().optional(),
-});
+const schemas = require('./schemas/events');
 
 const eventsV1Route = [
   {
@@ -41,12 +8,13 @@ const eventsV1Route = [
     path: '/api/v1/events',
     handler: eventsV1Handler.getAll,
     options: {
+      auth: 'simple',
       description: 'Get all events',
       tags: ['api', 'events'],
       response: {
         schema: Joi.object({
           data: Joi.array()
-            .items(eventSchema)
+            .items(schemas.eventSchema)
             .required(),
         }),
       },
@@ -57,6 +25,7 @@ const eventsV1Route = [
     path: '/api/v1/events/{id}',
     handler: eventsV1Handler.getOne,
     options: {
+      auth: 'simple',
       description: 'Get an event',
       tags: ['api', 'events'],
       validate: {
@@ -68,7 +37,7 @@ const eventsV1Route = [
       },
       response: {
         schema: Joi.object({
-          data: eventSchema,
+          data: schemas.eventSchema,
         }),
       },
     },
@@ -78,14 +47,15 @@ const eventsV1Route = [
     path: '/api/v1/events',
     handler: eventsV1Handler.post,
     options: {
+      auth: 'simple',
       description: 'Creates an event',
       tags: ['api', 'events'],
       validate: {
-        payload: eventPostSchema,
+        payload: schemas.eventPostSchema,
       },
       response: {
         schema: Joi.object({
-          data: eventSchema,
+          data: schemas.eventSchema,
         }),
       },
     },
@@ -95,6 +65,7 @@ const eventsV1Route = [
     path: '/api/v1/events/{id}',
     handler: eventsV1Handler.update,
     options: {
+      auth: 'simple',
       description: 'Updates an event',
       tags: ['api', 'events'],
       validate: {
@@ -103,11 +74,11 @@ const eventsV1Route = [
             .required()
             .description('The id for the event item'),
         }),
-        payload: eventUpdateSchema,
+        payload: schemas.eventUpdateSchema,
       },
       response: {
         schema: Joi.object({
-          data: eventSchema,
+          data: schemas.eventSchema,
         }),
       },
     },
@@ -117,6 +88,7 @@ const eventsV1Route = [
     path: '/api/v1/events/{id}',
     handler: eventsV1Handler.remove,
     options: {
+      auth: 'simple',
       description: 'Delete an event',
       tags: ['api', 'events'],
       validate: {
@@ -128,7 +100,7 @@ const eventsV1Route = [
       },
       response: {
         schema: Joi.object({
-          data: eventSchema,
+          data: schemas.eventSchema,
         }),
       },
     },
