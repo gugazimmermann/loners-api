@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const Event = new Schema({
+const User = new Schema({
   name: {
     type: String,
     required: true,
@@ -29,4 +29,4 @@ const Event = new Schema({
   timestamps: true,
 });
 
-module.exports = mongoose.model('Event', Event);
+module.exports = mongoose.model('User', User);

@@ -3,5 +3,3 @@ node_modules
 init-mongo.sh
 .nyc_output
 coverage
-views-temp
-LonersApiInfraAsCode
