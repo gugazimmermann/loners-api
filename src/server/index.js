@@ -9,7 +9,7 @@ const pkg = require('../../package.json');
 const routes = require('../routes');
 require('dotenv').config();
 
-const createServer = async (serverPort = 80) => {
+const createServer = async (serverPort = 8080) => {
   const server = await new Hapi.Server({
     port: process.env.SERVER_PORT || serverPort,
     host: process.env.SERVER_HOST || '0.0.0.0',
