@@ -14,7 +14,7 @@
         "test": "nyc --reporter=text-summary --reporter=lcov --reporter=html mocha --timeout 10000 --recursive --exit"
     },
     "dependencies": {
-        "bcrypt": "^3.0.8",
+        "bcrypt": "^5.0.0",
         "boom": "7.3.0",
         "dotenv": "^8.2.0",
         "handlebars": "^4.7.3",
